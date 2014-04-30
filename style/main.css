@@ -228,7 +228,7 @@ hr {
   position: absolute;
   z-index: 2; }
 
-.tile, .tile .tile-inner {
+.tile {
   width: 107px;
   height: 107px;
   line-height: 116.25px; }
@@ -304,11 +304,12 @@ hr {
   transition: 100ms ease-in-out;
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
-  transition-property: transform; }
-  .tile {
+  transition-property: transform;
+}
+.tile {
     border-radius: 3px;
     color: rgba(0, 0, 0, 0);
-    background-size: contain;
+    background: #cdc0b4;
     text-align: center;
     font-weight: bold;
     z-index: 10;
