@@ -422,11 +422,12 @@ hr {
   line-height: 42px;
   margin-bottom: 0; }
 
-.restart-button {
+.restart-button, .reverse-button {
   display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
-  padding: 0 20px;
+  padding: 0px 20px;
+  margin-left: 10px;
   text-decoration: none;
   color: #f9f6f2;
   height: 40px;
