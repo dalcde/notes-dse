@@ -89,39 +89,45 @@ HTMLActuator.prototype.addTile = function (tile) {
     var self = this;
 
     var wrapper   = document.createElement("div");
+    var inner     = document.createElement("div");
     var position  = tile.previousPosition || { x: tile.x, y: tile.y };
     var positionClass = this.positionClass(position);
 
-    this.setClass(wrapper, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2]);
+    inner.classList.add("tile-inner");
 
+    this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2]);
     if (tile.previousPosition) {
         // Make sure that the tile gets rendered in the previous position first
         window.requestAnimationFrame(function () {
-            self.setClass(wrapper, self.positionClass({ x: tile.x, y: tile.y }), MAP_LIST[active][Math.log(tile.value)/LOG2]);
+            self.setClass(wrapper, inner, self.positionClass({ x: tile.x, y: tile.y }), MAP_LIST[active][Math.log(tile.value)/LOG2]);
         });
     } else if (tile.mergedFrom) {
-        this.setClass(wrapper, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-merged");
+        this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-merged");
 
         // Render the tiles that merged
         tile.mergedFrom.forEach(function (merged) {
             self.addTile(merged);
         });
     } else {
-        this.setClass(wrapper, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-new");
+        this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-new");
     }
+
+    // Add the inner part of the tile to the wrapper
+    wrapper.appendChild(inner);
 
     // Put the tile on the board
     this.tileContainer.appendChild(wrapper);
 };
 
-HTMLActuator.prototype.setClass = function (element, positionClass, number, extra) {
+HTMLActuator.prototype.setClass = function (wrapper, inner, positionClass, number, extra) {
     if (!extra) extra = "";
-    element.setAttribute("class", "tile " + positionClass + " " + extra);
-    element.style.backgroundImage = "url('http://s07.ssc.edu.hk/Pages/DownloadUserHeader.aspx?sno=" + number + "')";
-    element.style.backgroundSize = "contain";
-    element.style.backgroundRepeat = "no-repeat";
-    element.style.backgroundPosition = "center";
-};
+    wrapper.setAttribute("class", "tile " + positionClass + " " + extra);
+    inner.style.backgroundImage = "url('http://s07.ssc.edu.hk/Pages/DownloadUserHeader.aspx?sno=" + number + "')";
+    inner.style.backgroundSize = "contain";
+    inner.style.backgroundRepeat = "no-repeat";
+    inner.style.backgroundPosition = "center";
+}
+
 HTMLActuator.prototype.normalizePosition = function (position) {
     return { x: position.x + 1, y: position.y + 1 };
 };
