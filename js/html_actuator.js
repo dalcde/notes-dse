@@ -1,40 +1,42 @@
 const LOG2 = Math.log(2);
+const S07 = "http://s07.ssc.edu.hk/Pages/DownloadUserHeader.aspx?sno=";
+const IGR = "https://i.imgur.com/";
 var active = 0;
 const MAP_LIST = [["Michael See",
-                   "2009001",
-                   "2009011",
-                   "2009012",
-                   "2009023",
-                   "2009037",
-                   "2009044",
-                   "2009048",
-                   "2009050",
-                   "2009064",
-                   "2009076",
-                   "2009081",
-                   "2009086",
-                   "2009089",
-                   "2009104",
-                   "2009105",
-                   "2009107",
-                   "2008119"],
+                   S07 + "2009001",
+                   S07 + "2009011",
+                   S07 + "2009012",
+                   IGR + "AQXJY9Y.jpg",
+		   S07 + "2009037",
+                   S07 + "2009044",
+                   S07 + "2009048",
+                   S07 + "2009050",
+                   S07 + "2009064",
+                   S07 + "2009076",
+                   S07 + "2009081",
+                   S07 + "2009086",
+                   S07 + "2009089",
+                   S07 + "2009104",
+                   S07 + "2009105",
+                   S07 + "2009107",
+                   S07 + "2008119"],
                   ["Jeffrey Yip",
-                   "2009194",
-                   "2009178",
-                   "2009168",
-                   "2009167",
-                   "2009160",
-                   "2009151",
-                   "2009146",
-                   "2009136",
-                   "2009134",
-                   "2009114",
-                   "2009113",
-                   "2008119",
-                   "2009107",
-                   "2009105",
-                   "2009104",
-                   "2009089"]];
+                   S07 + "2009194",
+                   S07 + "2009178",
+                   S07 + "2009168",
+                   S07 + "2009167",
+                   S07 + "2009160",
+                   S07 + "2009151",
+                   S07 + "2009146",
+                   S07 + "2009136",
+                   S07 + "2009134",
+                   S07 + "2009114",
+                   S07 + "2009113",
+                   S07 + "2008119",
+                   S07 + "2009107",
+                   S07 + "2009105",
+                   S07 + "2009104",
+                   S07 + "2009089"]];
 ;
 
 function HTMLActuator() {
@@ -119,10 +121,10 @@ HTMLActuator.prototype.addTile = function (tile) {
     this.tileContainer.appendChild(wrapper);
 };
 
-HTMLActuator.prototype.setClass = function (wrapper, inner, positionClass, number, extra) {
+HTMLActuator.prototype.setClass = function (wrapper, inner, positionClass, url, extra) {
     if (!extra) extra = "";
     wrapper.setAttribute("class", "tile " + positionClass + " " + extra);
-    inner.style.backgroundImage = "url('http://s07.ssc.edu.hk/Pages/DownloadUserHeader.aspx?sno=" + number + "')";
+    inner.style.backgroundImage = "url('" + url + "')";
     inner.style.backgroundSize = "contain";
     inner.style.backgroundRepeat = "no-repeat";
     inner.style.backgroundPosition = "center";
