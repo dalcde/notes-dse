@@ -2,12 +2,14 @@ const LOG2 = Math.log(2);
 const S07 = "http://s07.ssc.edu.hk/Pages/DownloadUserHeader.aspx?sno=";
 const IGR = "https://i.imgur.com/";
 var active = 0;
+const SMILEY = "http://upload.wikimedia.org/wikipedia/commons/8/85/Smiley.svg";
+var hidden = [];
 const MAP_LIST = [["Michael See",
                    S07 + "2009001",
                    S07 + "2009011",
                    S07 + "2009012",
                    IGR + "AQXJY9Y.jpg",
-		   S07 + "2009037",
+                   S07 + "2009037",
                    S07 + "2009044",
                    S07 + "2009048",
                    S07 + "2009050",
@@ -97,21 +99,21 @@ HTMLActuator.prototype.addTile = function (tile) {
 
     inner.classList.add("tile-inner");
 
-    this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2]);
+    this.setClass(wrapper, inner, positionClass, Math.log(tile.value)/LOG2);
     if (tile.previousPosition) {
         // Make sure that the tile gets rendered in the previous position first
         window.requestAnimationFrame(function () {
-            self.setClass(wrapper, inner, self.positionClass({ x: tile.x, y: tile.y }), MAP_LIST[active][Math.log(tile.value)/LOG2]);
+            self.setClass(wrapper, inner, self.positionClass({ x: tile.x, y: tile.y }), Math.log(tile.value)/LOG2);
         });
     } else if (tile.mergedFrom) {
-        this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-merged");
+        this.setClass(wrapper, inner, positionClass, Math.log(tile.value)/LOG2, "tile-merged");
 
         // Render the tiles that merged
         tile.mergedFrom.forEach(function (merged) {
             self.addTile(merged);
         });
     } else {
-        this.setClass(wrapper, inner, positionClass, MAP_LIST[active][Math.log(tile.value)/LOG2], "tile-new");
+        this.setClass(wrapper, inner, positionClass, Math.log(tile.value)/LOG2, "tile-new");
     }
 
     // Add the inner part of the tile to the wrapper
@@ -121,8 +123,13 @@ HTMLActuator.prototype.addTile = function (tile) {
     this.tileContainer.appendChild(wrapper);
 };
 
-HTMLActuator.prototype.setClass = function (wrapper, inner, positionClass, url, extra) {
+HTMLActuator.prototype.setClass = function (wrapper, inner, positionClass, number, extra) {
     if (!extra) extra = "";
+
+    var url = MAP_LIST[active][number];
+    if (hidden.indexOf(number) != -1) 
+        url = SMILEY;
+
     wrapper.setAttribute("class", "tile " + positionClass + " " + extra);
     inner.style.backgroundImage = "url('" + url + "')";
     inner.style.backgroundSize = "contain";
@@ -174,5 +181,21 @@ HTMLActuator.prototype.clearMessage = function () {
     this.messageContainer.classList.remove("game-over");
 };
 
-var button = document.querySelector(".reverse-button");
-button.addEventListener("click", function() { active = (active + 1) % 2;});
+var reverse_button = document.querySelector(".reverse-button");
+reverse_button.addEventListener("click", function() {
+    active = (active + 1) % 2;
+});
+
+var stealth_button = document.querySelector(".stealth-button");
+stealth_button.addEventListener("click", function() {
+    if (hidden.length == 0) {
+        while (hidden.length < 3) {
+            var random = Math.ceil(Math.random()*11);
+            if (hidden.indexOf(random) == -1) {
+                hidden.push(random);
+            }
+        }
+    } else {
+        hidden = [];
+    }
+});

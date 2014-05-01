@@ -422,7 +422,7 @@ hr {
   line-height: 42px;
   margin-bottom: 0; }
 
-.restart-button, .reverse-button {
+.restart-button, .reverse-button, .stealth-button {
   display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
