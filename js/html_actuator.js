@@ -48,9 +48,31 @@ function HTMLActuator() {
     this.messageContainer = document.querySelector(".game-message");
 
     this.score = 0;
+    this.parent;
+
+    var reverse_button = document.querySelector(".reverse-button");
+    reverse_button.addEventListener("click", function() {
+	active = (active + 1) % 2;
+	this.parent.actuate(true);
+    }.bind(this));
+    
+    var stealth_button = document.querySelector(".stealth-button");
+    stealth_button.addEventListener("click", function() {
+	if (hidden.length == 0) {
+            while (hidden.length < 3) {
+		var random = Math.ceil(Math.random()*11);
+		if (hidden.indexOf(random) == -1) {
+                    hidden.push(random);
+		}
+            }
+	} else {
+            hidden = [];
+	}
+	this.parent.actuate(true);
+    }.bind(this));
 }
 
-HTMLActuator.prototype.actuate = function (grid, metadata) {
+HTMLActuator.prototype.actuate = function (grid, metadata, suppressAnimation) {
     var self = this;
 
     window.requestAnimationFrame(function () {
@@ -59,7 +81,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         grid.cells.forEach(function (column) {
             column.forEach(function (cell) {
                 if (cell) {
-                    self.addTile(cell);
+                    self.addTile(cell, suppressAnimation);
                 }
             });
         });
@@ -89,7 +111,7 @@ HTMLActuator.prototype.clearContainer = function (container) {
     }
 };
 
-HTMLActuator.prototype.addTile = function (tile) {
+HTMLActuator.prototype.addTile = function (tile, suppressAnimation) {
     var self = this;
 
     var wrapper   = document.createElement("div");
@@ -100,12 +122,12 @@ HTMLActuator.prototype.addTile = function (tile) {
     inner.classList.add("tile-inner");
 
     this.setClass(wrapper, inner, positionClass, Math.log(tile.value)/LOG2);
-    if (tile.previousPosition) {
+    if (tile.previousPosition && !suppressAnimation) {
         // Make sure that the tile gets rendered in the previous position first
         window.requestAnimationFrame(function () {
             self.setClass(wrapper, inner, self.positionClass({ x: tile.x, y: tile.y }), Math.log(tile.value)/LOG2);
         });
-    } else if (tile.mergedFrom) {
+    } else if (tile.mergedFrom && !suppressAnimation) {
         this.setClass(wrapper, inner, positionClass, Math.log(tile.value)/LOG2, "tile-merged");
 
         // Render the tiles that merged
@@ -181,21 +203,3 @@ HTMLActuator.prototype.clearMessage = function () {
     this.messageContainer.classList.remove("game-over");
 };
 
-var reverse_button = document.querySelector(".reverse-button");
-reverse_button.addEventListener("click", function() {
-    active = (active + 1) % 2;
-});
-
-var stealth_button = document.querySelector(".stealth-button");
-stealth_button.addEventListener("click", function() {
-    if (hidden.length == 0) {
-        while (hidden.length < 3) {
-            var random = Math.ceil(Math.random()*11);
-            if (hidden.indexOf(random) == -1) {
-                hidden.push(random);
-            }
-        }
-    } else {
-        hidden = [];
-    }
-});
