@@ -1,0 +1,45 @@
+<!-- -*- indent-tabs-mode: nil -*- -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>HKDSE Resources - Physics Past Paper</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<div id="banner">
+</div>
+<div id="header">
+</div>
+<br />
+<div id="content">
+Test
+</div>
+<script src="script.js" type="text/javascript"></script>
+<script>
+activeSubject = "Physics";
+setSubject(activeSubject);
+
+var items = [["(I) Heat and Gases", "https://www.dropbox.com/s/lur5rw7oppp4fe7/Physics_DSE_PP_1.pdf", "https://www.dropbox.com/s/ci2ajl0ve73bplo/Physics_DSE_PP_1.odt"],
+            ["(II) Force and Motion", "https://www.dropbox.com/s/4eebr0ewsxxfqd2/Physics_DSE_PP_2.pdf", "https://www.dropbox.com/s/sebsxb46woxys84/Physics_DSE_PP_2.odt"],
+            ["(III) Wave Motion", "https://www.dropbox.com/s/thfme2aslqppuuf/Physics_DSE_PP_3.pdf", "https://www.dropbox.com/s/v8wvy4t840b8zve/Physics_DSE_PP_3.odt"],
+            ["(IV) Electricity and Magnetism", "https://www.dropbox.com/s/wl56jsn4pgzajbd/Physics_DSE_PP_4.pdf", "https://www.dropbox.com/s/9g2pkisi3ywb4go/Physics_DSE_PP_4.odt"],
+            ["(V) Radioactivity and Nuclear Energy", "https://www.dropbox.com/s/2lt08b1bfeiyz3a/Physics_DSE_PP_5.pdf", "https://www.dropbox.com/s/xohi6aeh21c2cqd/Physics_DSE_PP_5.odt"]];
+var html = "";
+html += "Physics Past Paper By Topic";
+html += " [<a href='https://www.dropbox.com/s/wuv5on9xwgkvwin/Physics_DSE_PP_Full.pdf'>Full PDF</a>]";
+html += "<ul>";
+for (var i in items) {
+    html += "<li>";
+    html += items[i][0];
+    html += " [";
+    html += "<a href='" + items[i][1] + "'>PDF</a>, ";
+    html += "<a href='" + items[i][2] + "'>ODT</a>";
+    html += "]";
+    html += "</li>";
+}
+html += "</ul>";
+$("#content").html(html);
+</script>
+</body>
+</html>
