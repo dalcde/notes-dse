@@ -16,7 +16,16 @@ body {
     margin-right: auto;
 }
 
-#header, #content {
+#header {
+    background-color: #fff;
+    padding: 5px;
+    width: 590px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#content {
     background-color: #fff;
     padding: 5px;
     width: 590px;
@@ -24,9 +33,9 @@ body {
     margin-right: auto;
 }
 
-td.option-td {
-    text-align: center;
-    width: 100%;
+#resourceList{
+    margin: 0;
+    line-height: 1.0;
 }
 
 a.option-subject {

@@ -1,51 +1,49 @@
-<!-- -*- indent-tabs-mode: nil -*- -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>HKDSE Resources - Economics Notes</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <title>HKDSE Resources - Economics Notes</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
-<div id="banner">
-</div>
-<div id="header">
-</div>
-<br />
-<div id="content">
-Test
-</div>
-<script src="script.js" type="text/javascript"></script>
-<script>
-activeSubject = "Economics";
-setSubject(activeSubject);
+  <div id="banner">
+  </div>
+  <div id="header">
+  </div>
+  <br />
+  <div id="content">
+  </div>
+  <script src="script.js" type="text/javascript"></script>
+  <script>
+    activeSubject = "Economics";
+    setSubject(activeSubject);
 
-var items = [["(A) Basic Economic Concepts", "https://www.dropbox.com/s/jptkoxlpetg6949/Economics_A.pdf", "https://www.dropbox.com/s/68wtih3k4j2ckl0/Economics_A.odt"],
-             ["(B) Firms and Production", "https://www.dropbox.com/s/yfn58il9ukkavfi/Economics_B.pdf", "https://www.dropbox.com/s/zlasliv4jgq55im/Economics_B.odt"],
-             ["(C) Market and Price", "https://www.dropbox.com/s/hxtcig0wiay476z/Economics_C.pdf", "https://www.dropbox.com/s/jbu3xgmjisuhotm/Economics_C.odt"],
-             ["(D) Competition and Market Structure", "https://www.dropbox.com/s/c0bchk9b76kx94l/Economics_D.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
-             ["(E) Efficiency, Equity and the Role of Government", "https://www.dropbox.com/s/rn5lm7368vx74l7/Economics_E.pdf","https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
-             ["(F) Measurement of Economic Performance", "https://www.dropbox.com/s/grbqq43f0aj2w2m/Economics_F.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
-             ["(G) National Income Determination and Price Level", "https://www.dropbox.com/s/ow398g0bw62dkhg/Economics_G.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
-             ["(H) Money and Banking", "https://www.dropbox.com/s/yjx14baqxfb2kzb/Economics_H.pdf", "https://www.dropbox.com/s/jv4fxfweutijrtr/Economics_H.odt"],
-             ["(I) Macroeconomic Problems and Policies", "https://www.dropbox.com/s/6fxzxnavln9eutd/Economics_I.pdf", "https://www.dropbox.com/s/ssrwsl863ix7xog/Economics_J.odt"],
-             ["(J) International Trade and Finance", "https://www.dropbox.com/s/k1w8xa3gywffpp4/Economics_J.pdf", "https://www.dropbox.com/s/ssrwsl863ix7xog/Economics_J.odt"]];
+    var items = [["(A) Basic Economic Concepts", "https://www.dropbox.com/s/jptkoxlpetg6949/Economics_A.pdf", "https://www.dropbox.com/s/68wtih3k4j2ckl0/Economics_A.odt"],
+                 ["(B) Firms and Production", "https://www.dropbox.com/s/yfn58il9ukkavfi/Economics_B.pdf", "https://www.dropbox.com/s/zlasliv4jgq55im/Economics_B.odt"],
+                 ["(C) Market and Price", "https://www.dropbox.com/s/hxtcig0wiay476z/Economics_C.pdf", "https://www.dropbox.com/s/jbu3xgmjisuhotm/Economics_C.odt"],
+                 ["(D) Competition and Market Structure", "https://www.dropbox.com/s/c0bchk9b76kx94l/Economics_D.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
+                 ["(E) Efficiency, Equity and the Role of Government", "https://www.dropbox.com/s/rn5lm7368vx74l7/Economics_E.pdf","https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
+                 ["(F) Measurement of Economic Performance", "https://www.dropbox.com/s/grbqq43f0aj2w2m/Economics_F.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
+                 ["(G) National Income Determination and Price Level", "https://www.dropbox.com/s/ow398g0bw62dkhg/Economics_G.pdf", "https://www.dropbox.com/s/k1q6tsrk5xh90ld/Economics_G.odt"],
+                 ["(H) Money and Banking", "https://www.dropbox.com/s/yjx14baqxfb2kzb/Economics_H.pdf", "https://www.dropbox.com/s/jv4fxfweutijrtr/Economics_H.odt"],
+                 ["(I) Macroeconomic Problems and Policies", "https://www.dropbox.com/s/6fxzxnavln9eutd/Economics_I.pdf", "https://www.dropbox.com/s/ssrwsl863ix7xog/Economics_J.odt"],
+                 ["(J) International Trade and Finance", "https://www.dropbox.com/s/k1w8xa3gywffpp4/Economics_J.pdf", "https://www.dropbox.com/s/ssrwsl863ix7xog/Economics_J.odt"]];
 
-var html = "";
-html += "Economic Notes";
-html += " [<a href='https://www.dropbox.com/s/gbnwyl4ex8idthh/Economics_Full.pdf'>Full PDF</a>]";
-html += "<ul>";
-for (var i in items) {
-    html += "<li>";
-    html += items[i][0];
-    html += " [";
-    html += "<a href='" + items[i][1] + "'>PDF</a>, ";
-    html += "<a href='" + items[i][2] + "'>ODT</a>";
-    html += "]";
-    html += "</li>";
-}
-html += "</ul>";
-$("#content").html(html);
-</script>
+    var html = "";
+    html += "Economic Notes";
+    html += " [<a href='https://www.dropbox.com/s/gbnwyl4ex8idthh/Economics_Full.pdf'>Full PDF</a>]";
+    html += "<ul>";
+    for (var i in items) {
+        html += "<li>";
+        html += items[i][0];
+        html += " [";
+        html += "<a href='" + items[i][1] + "'>PDF</a>, ";
+        html += "<a href='" + items[i][2] + "'>ODT</a>";
+        html += "]";
+        html += "</li>";
+    }
+    html += "</ul>";
+    $("#content").html(html);
+  </script>
 </body>
 </html>

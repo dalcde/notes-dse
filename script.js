@@ -24,7 +24,7 @@ function setSubject(subject) {
     for (var i in arr) {
         html += '<a href="#" class="option-resource">' + arr[i] + '</a>';
     }
-    $("#resource_list").html(html);
+    $("#resourceList").html(html);
 
     $("a.option-resource").click(function() {
         activeResource = $(this).text();

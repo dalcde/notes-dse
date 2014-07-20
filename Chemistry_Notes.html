@@ -1,45 +1,44 @@
-<!-- -*- indent-tabs-mode: nil -*- -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>HKDSE Resources - Chemistry Notes</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <title>HKDSE Resources - Chemistry Notes</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
-<div id="banner">
-</div>
-<div id="header">
-</div>
-<br />
-<div id="content">
-</div>
-<script src="script.js" type="text/javascript"></script>
-<script>
-activeSubject = "Economics";
-setSubject(activeSubject);
+  <div id="banner">
+  </div>
+  <div id="header">
+  </div>
+  <br />
+  <div id="content">
+  </div>
+  <script src="script.js" type="text/javascript"></script>
+  <script>
+    activeSubject = "Economics";
+    setSubject(activeSubject);
 
-var items = [["(VI) Microscopic World II", "https://www.dropbox.com/s/n9kgbayeozo4k43/Chemistry_6.pdf", "https://www.dropbox.com/s/f92owxj8vx40mt2/Chemistry_6.odt"],
-             ["(VII) Redox Reactions, Chemical Cells and Electrolysis", "https://www.dropbox.com/s/eh5xnqdwvvagpwq/Chemistry_7.pdf", "https://www.dropbox.com/s/7c2tp3xvj9f66mz/Chemistry_7.odt"],
-             ["(VIII) Chemical Reactions and Energy", "https://www.dropbox.com/s/7u82nuw60oqw0fh/Chemistry_8.pdf", "https://www.dropbox.com/s/r4frvnp9t07rhoa/Chemistry_8.odt"],
-             ["(IX) Rate of Reaction", "https://www.dropbox.com/s/iu5e3a2katvj2ht/Chemistry_9.pdf", "https://www.dropbox.com/s/vczjiu02g2570yu/Chemistry_9.odt"],
-             ["(X) Chemical Equilibrium", "https://www.dropbox.com/s/9e5531syjo6iqzi/Chemistry_10.pdf", "https://www.dropbox.com/s/fsdllv6curb1r15/Chemistry_10.odt"]];
+    var items = [["(VI) Microscopic World II", "https://www.dropbox.com/s/n9kgbayeozo4k43/Chemistry_6.pdf", "https://www.dropbox.com/s/f92owxj8vx40mt2/Chemistry_6.odt"],
+                 ["(VII) Redox Reactions, Chemical Cells and Electrolysis", "https://www.dropbox.com/s/eh5xnqdwvvagpwq/Chemistry_7.pdf", "https://www.dropbox.com/s/7c2tp3xvj9f66mz/Chemistry_7.odt"],
+                 ["(VIII) Chemical Reactions and Energy", "https://www.dropbox.com/s/7u82nuw60oqw0fh/Chemistry_8.pdf", "https://www.dropbox.com/s/r4frvnp9t07rhoa/Chemistry_8.odt"],
+                 ["(IX) Rate of Reaction", "https://www.dropbox.com/s/iu5e3a2katvj2ht/Chemistry_9.pdf", "https://www.dropbox.com/s/vczjiu02g2570yu/Chemistry_9.odt"],
+                 ["(X) Chemical Equilibrium", "https://www.dropbox.com/s/9e5531syjo6iqzi/Chemistry_10.pdf", "https://www.dropbox.com/s/fsdllv6curb1r15/Chemistry_10.odt"]];
 
-var html = "";
-html += "Chemistry Notes";
-html += " [<a href='https://www.dropbox.com/s/ntc5rbrydt1slpd/Chemistry_Full.pdf'>Full PDF</a>]";
-html += "<ul>";
-for (var i in items) {
-    html += "<li>";
-    html += items[i][0];
-    html += " [";
-    html += "<a href='" + items[i][1] + "'>PDF</a>, ";
-    html += "<a href='" + items[i][2] + "'>ODT</a>";
-    html += "]";
-    html += "</li>";
-}
-html += "</ul>";
-$("#content").html(html);
-</script>
+    var html = "";
+    html += "Chemistry Notes";
+    html += " [<a href='https://www.dropbox.com/s/ntc5rbrydt1slpd/Chemistry_Full.pdf'>Full PDF</a>]";
+    html += "<ul>";
+    for (var i in items) {
+        html += "<li>";
+        html += items[i][0];
+        html += " [";
+        html += "<a href='" + items[i][1] + "'>PDF</a>, ";
+        html += "<a href='" + items[i][2] + "'>ODT</a>";
+        html += "]";
+        html += "</li>";
+    }
+    html += "</ul>";
+    $("#content").html(html);
+  </script>
 </body>
 </html>
