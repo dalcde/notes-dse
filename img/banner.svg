@@ -14,7 +14,7 @@
             offset="1" />
     </linearGradient>
   </defs>
-  <rect style="fill:url(#gradient);fill-rule:nonzero"
+  <rect style="fill:url(#gradient)"
         width="600"
         height="200"
         x="0"
