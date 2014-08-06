@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HKDSE Resources - Economics Mock Paper</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+  <div id="banner">
+  </div>
+  <div id="header">
+  </div>
+  <br />
+  <div id="content">
+  </div>
+  <script src="script.js" type="text/javascript"></script>
+  <script>
+    activeSubject = "Economics";
+    setSubject(activeSubject);
+
+    var items = [["Mock Paper 1 Paper 2 Question", "https://www.dropbox.com/s/l1891yvaz5p2ez1/Economics_Mock_1-2_que.pdf", "https://www.dropbox.com/s/1kj4363l8298ugh/Economics_Mock_1-2_que.odt"],
+                 ["Mock Paper 1 Paper 2 Marking Scheme", "https://www.dropbox.com/s/oh19n9qhe3bg9o2/Economics_Mock_1-2_msc.pdf", "https://www.dropbox.com/s/7ik3v09evqqau29/Economics_Mock_1-2_msc.odt"]];
+    var html = "";
+    html += "Economic Mock Paper";
+    html += "<ul>";
+    for (var i in items) {
+        html += "<li>";
+        html += items[i][0];
+        html += " [";
+        html += "<a href='" + items[i][1] + "'>PDF</a>, ";
+        html += "<a href='" + items[i][2] + "'>ODT</a>";
+        html += "]";
+        html += "</li>";
+    }
+    html += "</ul>";
+    $("#content").html(html);
+  </script>
+</body>
+</html>
