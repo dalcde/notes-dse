@@ -3,6 +3,7 @@ const RESOURCE_TABLE = [];
 RESOURCE_TABLE["Physics"] = ["Past Paper"];
 RESOURCE_TABLE["Chemistry"] = ["Notes"];
 RESOURCE_TABLE["Economics"] = ["Notes", "Mock Paper"];
+RESOURCE_TABLE["Mathematics"] = ["Notes", "Past Paper"];
 
 var activeSubject;
 var activeResource;
